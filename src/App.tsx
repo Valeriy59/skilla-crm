@@ -3,7 +3,7 @@ import './App.css';
 import {Header} from "./components/Header/Header";
 import {Sidebar} from "./components/Sidebar/Sidebar";
 import {callsAPI} from "./api/api";
-import {CallsTable_temp} from "./components/CallsTable/CallsTable_temp";
+import {CallsTable} from "./components/CallsTable/CallsTable";
 
 
 function App() {
@@ -17,8 +17,7 @@ function App() {
       <Sidebar/>
       <Header/>
       <div className='app-wrapper-content'>
-        {/*<CallsTable/>*/}
-        <CallsTable_temp/>
+        <CallsTable/>
       </div>
     </div>
   );

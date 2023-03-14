@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+    padding: 2px 4px;
+    color: #ADBFDF;
+
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 17px;
+    color: #ADBFDF;
+}
+
+.input {
+    display: flex;
+
+    width: 100%;
+    margin-left: 10px;
+    color: #5E7793;
+    background-color: transparent;
+}
+
+.findIcon {
+    margin-left: 10px;
+    color: #ADBFDF;
+}
