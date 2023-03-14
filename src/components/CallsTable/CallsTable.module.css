@@ -1,0 +1,47 @@
+.titleForEmptyPack {
+  margin: 55px auto 35px;
+
+  font-family: 'Montserrat', serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+}
+
+.wrapperForTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.link{
+  display: flex;
+  align-items: center;
+
+  color: black;
+  text-decoration: none;
+}
+
+.packName {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cover {
+  padding: 0;
+  width: 32px;
+
+}
+
+.disabledLink {
+  pointer-events: none;
+
+  color: #8d8989;
+  text-decoration: none;
+}
+
+.questionImg {
+  width: 105px;
+  height: 36px;
+}

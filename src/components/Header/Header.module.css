@@ -1,0 +1,10 @@
+.headerContainer {
+    grid-area: header;
+    height: 64px;
+    width: 1680px;
+    left: 240px;
+    top: 0;
+    border-radius: 0;
+    background-color: #FFFFFF;
+
+}

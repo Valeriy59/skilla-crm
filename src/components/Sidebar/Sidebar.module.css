@@ -1,0 +1,45 @@
+.sidebarContainer {
+    width: 240px;
+    background-color: #091336;
+    grid-area: nav
+}
+
+img {
+    height: 28px;
+    width: 109px;
+    padding: 20px 0 0 12px;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #091336;
+    padding: 20px;
+    width: 240px;
+}
+.item {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.nav a {
+    /*font-size: large;*/
+
+    color: #FFFFFF99;
+    text-decoration: none;
+    margin-left: 5px;
+    /*font-family: 'SF Pro Display';*/
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px
+}
+.item a.activeLink {
+    font-weight: bold;
+}
+.item:hover {
+    transform: scale(1.03);
+}
+
+.icon {
+    color: #FFFFFF8F;
+}
