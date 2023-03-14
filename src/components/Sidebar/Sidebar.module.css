@@ -17,7 +17,8 @@ img {
     width: 240px;
 }
 .item {
-    margin: 10px;
+
+    height: 52px;
     display: flex;
     align-items: center;
 }
@@ -42,4 +43,13 @@ img {
 
 .icon {
     color: #FFFFFF8F;
+    margin-right: 12px;
+}
+
+.buttonContainer {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }

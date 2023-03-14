@@ -7,6 +7,7 @@ import {getCalls} from "../../redux/callsSlice";
 import {CallsTableHead} from "./CallsTableHead/CallsTableHead";
 import {CallsTableBody} from "./CallsTableBody/CallsTableBody";
 import {Captions} from "../Captions/Captions";
+import s from './CallsTable.module.css'
 
 
 export const CallsTable = () => {
@@ -17,9 +18,9 @@ export const CallsTable = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <div className={s.container}>
       <Captions/>
-      <TableContainer component={Paper} style={{margin: '120px 135px 120px 120px', width: "auto"}}>
+      <TableContainer component={Paper} >
         <Table sx={{ maxWidth: 1440 }} aria-label="simple table">
           <CallsTableHead/>
           <CallsTableBody/>

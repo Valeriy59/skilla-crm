@@ -6,5 +6,43 @@
     top: 0;
     border-radius: 0;
     background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.newContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 56px;
+}
+
+.newText {
+    color: green;
+}
+
+.qualityText {
+    color: darkorange;
+}
+
+.convText {
+    color: darkred;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.userText {
+    color: #899CB1;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: right;
+    padding-left: 64px;
 }

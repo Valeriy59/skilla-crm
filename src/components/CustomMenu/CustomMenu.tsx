@@ -2,7 +2,8 @@ import React, {FC} from 'react'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import s from './CustomMenu.module.css'
 
 type CustomMenuPropsType = {
   title: string
@@ -19,7 +20,7 @@ export const CustomMenu: FC<CustomMenuPropsType> = ({title}) => {
   };
 
   return (
-    <div>
+    <div className={s.menuContainer}>
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}

@@ -1,0 +1,12 @@
+.captionsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

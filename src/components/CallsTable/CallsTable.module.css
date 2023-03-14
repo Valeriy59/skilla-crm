@@ -1,3 +1,8 @@
+.container {
+  margin: 120px 135px 120px 120px;
+  width: auto;
+}
+
 .titleForEmptyPack {
   margin: 55px auto 35px;
 
