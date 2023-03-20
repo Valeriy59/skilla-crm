@@ -1,8 +1,12 @@
 import {instance} from "../common/constants/constants";
 
 export const callsAPI = {
-  getList() {
-    return instance.post<ResponseType>(``)
+  getList(payload: SearchParamsType) {
+    return instance.post<ResponseType>(`getList?date_start=${payload.date_start}&date_end=${payload.date_end}&in_out=${payload.in_out}`)
+      .then((res) => res.data)
+  },
+  getRecord(record: string, partnershipId: string){
+    return instance.post(`getRecord?partnership_id=${partnershipId}&record=${record}`)
       .then((res) => res.data)
   }}
 
@@ -58,6 +62,12 @@ type ResponseType = {
       "person_avatar": string
     },
   ]
+}
+
+export type SearchParamsType = {
+  date_start: string
+  date_end: string
+  in_out: null | number
 }
 
 

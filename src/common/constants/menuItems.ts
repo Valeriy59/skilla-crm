@@ -1,0 +1,6 @@
+export const callTypes = ['Все звонки', 'Входящие', 'Исходящие']
+export const employees = ['Все сотрудники']
+export const calls = ['Все звонки']
+export const sources = ['Все источники']
+export const marks = ['Все оценки']
+export const errors = ['Все ошибки']

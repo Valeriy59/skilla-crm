@@ -1,7 +1,11 @@
 .sidebarContainer {
     width: 240px;
     background-color: #091336;
-    grid-area: nav
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 img {
@@ -13,14 +17,15 @@ img {
 .nav {
     grid-area: nav;
     background-color: #091336;
-    padding: 20px;
-    width: 240px;
+    /*padding: 20px;*/
+    width: 100%;
 }
 .item {
 
     height: 52px;
     display: flex;
     align-items: center;
+    padding-left: 20px;
 }
 .nav a {
     /*font-size: large;*/

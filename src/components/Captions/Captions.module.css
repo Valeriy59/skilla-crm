@@ -1,8 +1,21 @@
 .captionsContainer {
     display: flex;
+    flex-direction: column;
+    justify-items: center;
+    /*align-items: center;*/
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.filterContainer {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 48px;
+
 }
 
 .menuContainer {

@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {AppRootStateType} from "./store";
-import {callsAPI} from "../api/api";
+import {callsAPI, SearchParamsType} from "../api/api";
 
 const initialState = {
   "total_rows": "468",
@@ -53,10 +53,15 @@ const initialState = {
       "person_surname": "Михалкович",
       "person_avatar": "https://lk.skilla.ru/img/noavatar.jpg"
     },
-  ]
+  ],
+  searchParams: {
+    date_start: '2023-03-15',
+    date_end: '2023-03-15',
+    in_out: null
+  } as SearchParamsType,
 }
 export const callsSlice = createSlice({
-  name: 'packs',
+  name: 'calls',
   initialState: initialState,
   reducers: {
     setTotalRows(state, action: PayloadAction<any>) {
@@ -64,13 +69,25 @@ export const callsSlice = createSlice({
     },
     setResults(state, action: PayloadAction<any>) {
       state.results = action.payload.results
-    }
+    },
+    setDateStart: (state, action: PayloadAction<string>) => {
+      state.searchParams.date_start = action.payload;
+    },
+    setDateEnd: (state, action: PayloadAction<string>) => {
+      state.searchParams.date_end = action.payload;
+    },
+    setCallType: (state, action: PayloadAction<number | null>) => {
+      state.searchParams.in_out = action.payload;
+    },
   }
 })
 
 export const getCalls = createAsyncThunk('calls/getCalls', async (_, {dispatch, getState}) => {
+  const state = getState() as AppRootStateType
+  const { date_start, date_end, in_out } = state.callsReducer.searchParams
+    const params = {date_start, date_end, in_out}
   try {
-    const res = await callsAPI.getList()
+    const res = await callsAPI.getList(params)
 
     dispatch(setTotalRows({total_rows: res.total_rows}))
     dispatch(setResults({ results: res.results}))
@@ -81,6 +98,7 @@ export const getCalls = createAsyncThunk('calls/getCalls', async (_, {dispatch, 
   }
 })
 
-export const {setResults, setTotalRows} = callsSlice.actions
+export const {setResults, setTotalRows, setCallType, setDateStart, setDateEnd} = callsSlice.actions
 
 export const callsReducer = callsSlice.reducer
+

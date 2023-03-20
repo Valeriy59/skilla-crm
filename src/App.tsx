@@ -7,11 +7,11 @@ import {CallsTable} from "./components/CallsTable/CallsTable";
 
 
 function App() {
-  useEffect(() => {
-    callsAPI.getList().then((res) => {
-      console.log(res)
-    })
-  }, [])
+  // useEffect(() => {
+  //   callsAPI.getList().then((res) => {
+  //     console.log(res)
+  //   })
+  // }, [])
   return (
     <div className='app-wrapper'>
       <Sidebar/>

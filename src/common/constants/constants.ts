@@ -13,7 +13,7 @@ export const sidebarItems = [
   'Настройки'
 ]
 export const instance = axios.create({
-  baseURL: 'https://api.skilla.ru/mango/getList',
+  baseURL: 'https://api.skilla.ru/mango/',
   headers: {
     'Authorization': 'Bearer testtoken'
   }

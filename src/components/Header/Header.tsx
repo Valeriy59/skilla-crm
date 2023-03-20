@@ -6,11 +6,18 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 import Button from "@mui/material/Button"
 
-
 export const Header = () => {
-  const date = new Date()
+
+  const formatter = new Intl.DateTimeFormat('ru', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  });
+
+  const date = formatter.format(new Date());
   return (
     <div className={s.headerContainer}>
+      <div>{date}</div>
       <div className={s.newContainer}>
         <div><span>Новые звонки </span><span className={s.newText}>20 из 30 шт</span></div>
         <Progress value={60} color={'success'}/>
@@ -42,7 +49,6 @@ export const Header = () => {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg"/>
         </Button>
       </div>
-      {date.getDate()}
     </div>
   )
 }

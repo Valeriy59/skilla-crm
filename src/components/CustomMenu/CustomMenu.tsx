@@ -1,50 +1,81 @@
-import React, {FC} from 'react'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
+import React, {FC, useState} from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import s from './CustomMenu.module.css'
 
 type CustomMenuPropsType = {
-  title: string
+  options: any[]
+  callBack: (index: number) => void
 }
 
-export const CustomMenu: FC<CustomMenuPropsType> = ({title}) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+export const CustomMenu: FC<CustomMenuPropsType> = ({options, callBack}) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const handleMenuItemClick = (
+    event: React.MouseEvent<HTMLElement>,
+    index: number,
+  ) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+    callBack(index)
+  };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   return (
-    <div className={s.menuContainer}>
-      <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        style={{color: '#5E7793', textTransform: 'none'}}
-        endIcon={<KeyboardArrowDownIcon />}
+    <div>
+      <List
+        component="nav"
+        aria-label="Device settings"
+        sx={{ bgcolor: 'inherit' }}
       >
-        {title}
-      </Button>
+        <ListItem
+          button
+          id="lock-button"
+          aria-haspopup="listbox"
+          aria-controls="lock-menu"
+          //aria-label="when device is locked"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClickListItem}
+        >
+          <ListItemText
+            primary={options[selectedIndex]}
+          />
+          <KeyboardArrowDownIcon sx={{color:'#ADBFDF'}}/>
+        </ListItem>
+      </List>
       <Menu
-        id="basic-menu"
+        id="lock-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          'aria-labelledby': 'lock-button',
+          role: 'listbox',
         }}
       >
-        <MenuItem onClick={handleClose}>Все звонки</MenuItem>
-        <MenuItem onClick={handleClose}>Входящие</MenuItem>
-        <MenuItem onClick={handleClose}>Исходящие</MenuItem>
+        {options.map((option, index) => (
+          <MenuItem
+            key={option}
+            //disabled={index === 0}
+            selected={index === selectedIndex}
+            onClick={(event) => handleMenuItemClick(event, index)}
+          >
+            {option}
+          </MenuItem>
+        ))}
       </Menu>
+
     </div>
   );
 }
