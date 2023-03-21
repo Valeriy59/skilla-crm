@@ -26,7 +26,7 @@ export const CallsTable = () => {
 
     setSearchParams(params)
     dispatch(getCalls())
-  }, [stateSearchParams])
+  }, [dispatch, stateSearchParams])
 
   return (
     <div className={s.container}>
