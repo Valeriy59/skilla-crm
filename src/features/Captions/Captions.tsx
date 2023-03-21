@@ -1,12 +1,12 @@
-import React, {FC} from 'react'
-import {SearchInput} from "../SearchInput/SearchInput";
-import {CustomMenu} from "../CustomMenu/CustomMenu";
+import React from 'react'
+import {SearchInput} from "../../components/SearchInput/SearchInput";
+import {CustomMenu} from "../../components/CustomMenu/CustomMenu";
 import s from './Captions.module.css'
 import {calls, callTypes, employees, errors, marks, sources} from "../../common/constants/menuItems";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
-import {setCallType} from "../../redux/callsSlice";
-import {Balance} from "../Balance/Balance";
-import {CustomDatePicker} from "../CustomDatePicker/CustomDatePicker";
+import {setCallType, setDateEnd} from "../../redux/callsSlice";
+import {Balance} from "../../components/Balance/Balance";
+import {CustomDatePicker} from "../../components/CustomDatePicker/CustomDatePicker";
 import {setDateStart} from "../../redux/callsSlice";
 import {Dayjs} from "dayjs";
 
@@ -23,12 +23,18 @@ export const Captions = () => {
     dispatch(setDateStart(dateStart?.format('YYYY-MM-DD').toString()))
     console.log(dateStart?.format('YYYY-MM-DD').toString())
   }
-
+  const handleSetDateEnd = (dateEnd: Dayjs | null) => {
+    dateEnd &&
+    dispatch(setDateEnd(dateEnd?.format('YYYY-MM-DD').toString()))
+    console.log(dateEnd?.format('YYYY-MM-DD').toString())
+  }
   return (
     <div className={s.captionsContainer}>
       <div className={s.buttonsContainer}>
         <Balance/>
         <CustomDatePicker callBack={handleSetDateStart}/>
+        <span> - </span>
+        <CustomDatePicker callBack={handleSetDateEnd}/>
       </div>
       <div className={s.filterContainer}>
         <SearchInput searchValue={''}/>

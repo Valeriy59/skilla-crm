@@ -1,13 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import {callsReducer} from "./callsSlice";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import {dateFilterReducer} from "./filterSlice";
 import {recordReducer} from "./recordSlice";
 
 export const store = configureStore({
   reducer: {
     callsReducer,
-    dateFilterReducer,
     recordReducer
   }
 });

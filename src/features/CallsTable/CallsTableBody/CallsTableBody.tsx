@@ -1,18 +1,15 @@
 import React from 'react'
 import TableRow from "@mui/material/TableRow"
 import TableCell from "@mui/material/TableCell"
-import {InOutCall} from "../../InOutCall/InOutCall"
 import {trimDate} from "../../../common/utils/trimDate"
 import s from "../CallsTable.module.css"
-import {FromSiteCall} from "../../FromSiteCall/FromSiteCall"
 import TableBody from "@mui/material/TableBody"
 import {useAppDispatch, useAppSelector} from "../../../redux/store"
 import Button from '@mui/material/Button'
-import {convertSeconds} from "../../../common/utils/convertSeconds";
-import {AudioPlayerCustom} from "../../CustomAudioPlayer/CustomAudioPlayer";
-import {callsAPI} from "../../../api/api";
-import {getRecord} from "../../../redux/recordSlice";
-
+import {convertSeconds} from "../../../common/utils/convertSeconds"
+import {getRecord} from "../../../redux/recordSlice"
+import {InOutCall} from "../../../components/InOutCall/InOutCall"
+import {FromSiteCall} from "../../../components/FromSiteCall/FromSiteCall"
 
 export const CallsTableBody = () => {
   const results = useAppSelector((state) => state.callsReducer.results)
@@ -48,7 +45,9 @@ export const CallsTableBody = () => {
                 color: '#002CFB'
               }}>Распознать</Button>
             </TableCell>
-            <TableCell align="center">{convertSeconds(call.time)}<AudioPlayerCustom src={recordSrc}/></TableCell>
+            <TableCell align="center">{convertSeconds(call.time)}
+              {/*<AudioPlayerCustom src={recordSrc}/>*/}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

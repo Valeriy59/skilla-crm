@@ -1,17 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Sidebar} from "./components/Sidebar/Sidebar";
-import {callsAPI} from "./api/api";
-import {CallsTable} from "./components/CallsTable/CallsTable";
+import {CallsTable} from "./features/CallsTable/CallsTable";
 
 
 function App() {
-  // useEffect(() => {
-  //   callsAPI.getList().then((res) => {
-  //     console.log(res)
-  //   })
-  // }, [])
+
   return (
     <div className='app-wrapper'>
       <Sidebar/>
